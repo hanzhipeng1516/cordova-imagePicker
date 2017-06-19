@@ -1,5 +1,8 @@
 cordova-imagePicker
 ===================
+1、add package.json to suport new version cordova 
+
+===================
 add chinese suport(添加中文支持)
 Cordova Plugin For Multiple Image Selection - implemented for iOS and Android 4.0 and above.
 
