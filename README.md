@@ -1,5 +1,6 @@
 cordova-imagePicker
 ===================
+latest:
 1、add package.json to suport new version cordova 
 
 ===================
@@ -16,9 +17,9 @@ using the Cordova / Phonegap command line interface.
     cordova plugin add https://github.com/woodstream/ImagePicker.git
     
     # with desc
-    phonegap plugin add https://github.com/woodstream/ImagePicker.git --variable PHOTO_LIBRARY_USAGE_DESCRIPTION="your usage message"
+    phonegap plugin add https://github.com/woodstream/ImagePicker.git --variable PHOTO_LIBRARY_USAGE_DESCRIPTION="your usage message" --variable CAMERA_USAGE_DESCRIPTION="your usage message"
 
-    cordova plugin add https://github.com/woodstream/ImagePicker.git --variable PHOTO_LIBRARY_USAGE_DESCRIPTION="your usage message"
+    cordova plugin add https://github.com/woodstream/ImagePicker.git --variable PHOTO_LIBRARY_USAGE_DESCRIPTION="your usage message" --variable CAMERA_USAGE_DESCRIPTION="your usage message"
 
 
 ## Using the plugin
