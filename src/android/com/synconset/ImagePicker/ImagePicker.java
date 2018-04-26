@@ -32,6 +32,7 @@ public class ImagePicker extends CordovaPlugin {
 
     private CallbackContext callbackContext;
 
+    @Override
     public boolean execute(String action, final JSONArray args, final CallbackContext callbackContext) throws JSONException {
         this.callbackContext = callbackContext;
 
@@ -51,6 +52,8 @@ public class ImagePicker extends CordovaPlugin {
             int desiredHeight = 0;
             int quality = 100;
             int outputType = 0;
+            String maximumAlertTitle = "";
+            String maximumAlertMsg = "";
             if (params.has("maximumImagesCount")) {
                 max = params.getInt("maximumImagesCount");
             }
@@ -66,12 +69,22 @@ public class ImagePicker extends CordovaPlugin {
             if (params.has("outputType")) {
                 outputType = params.getInt("outputType");
             }
+            //alert info
+            if (params.has("maximumAlertTitle")) {
+                maximumAlertTitle = params.getString("maximumAlertTitle");
+            }
+            if (params.has("maximumAlertMsg")) {
+                maximumAlertMsg = params.getString("maximumAlertMsg");
+            }
 
             imagePickerIntent.putExtra("MAX_IMAGES", max);
             imagePickerIntent.putExtra("WIDTH", desiredWidth);
             imagePickerIntent.putExtra("HEIGHT", desiredHeight);
             imagePickerIntent.putExtra("QUALITY", quality);
             imagePickerIntent.putExtra("OUTPUT_TYPE", outputType);
+            //
+            imagePickerIntent.putExtra("MAX_ALERT_TITLE", maximumAlertTitle);
+            imagePickerIntent.putExtra("MAX_ALERT_MSG", maximumAlertMsg);
 
             // some day, when everybody uses a cordova version supporting 'hasPermission', enable this:
             /*

@@ -55,6 +55,8 @@ ImagePicker.prototype.getPictures = function(success, fail, options) {
 
 	var params = {
 		maximumImagesCount: options.maximumImagesCount ? options.maximumImagesCount : 15,
+		maximumAlertTitle: options.maximumAlertTitle ? options.maximumAlertTitle : "Maximum | Photos",
+        maximumAlertMsg: options.maximumAlertMsg ? options.maximumAlertMsg : "You can only select | photos at a time.",
 		width: options.width ? options.width : 0,
 		height: options.height ? options.height : 0,
 		quality: options.quality ? options.quality : 100,

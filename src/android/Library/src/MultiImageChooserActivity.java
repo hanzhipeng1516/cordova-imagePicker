@@ -90,6 +90,9 @@ public class MultiImageChooserActivity extends AppCompatActivity implements
     public static final String HEIGHT_KEY = "HEIGHT";
     public static final String QUALITY_KEY = "QUALITY";
     public static final String OUTPUT_TYPE_KEY = "OUTPUT_TYPE";
+    //alert
+    public static final String MAX_ALERT_TITLE_KEY = "MAX_ALERT_TITLE";
+    public static final String MAX_ALERT_MSG_KEY = "MAX_ALERT_MSG";
 
     private ImageAdapter ia;
 
@@ -111,6 +114,9 @@ public class MultiImageChooserActivity extends AppCompatActivity implements
     private int desiredHeight;
     private int quality;
     private OutputType outputType;
+    //
+    String maximumAlertTitle = "Maximum | Photos";
+    String maximumAlertMsg = "You can only select | photos at a time.";
 
     private final ImageFetcher fetcher = new ImageFetcher();
 
@@ -130,12 +136,22 @@ public class MultiImageChooserActivity extends AppCompatActivity implements
         setContentView(fakeR.getId("layout", "multiselectorgrid"));
         fileNames.clear();
 
-        maxImages = getIntent().getIntExtra(MAX_IMAGES_KEY, NOLIMIT);
-        desiredWidth = getIntent().getIntExtra(WIDTH_KEY, 0);
-        desiredHeight = getIntent().getIntExtra(HEIGHT_KEY, 0);
-        quality = getIntent().getIntExtra(QUALITY_KEY, 0);
+        Intent intent = getIntent();
+        maxImages = intent.getIntExtra(MAX_IMAGES_KEY, NOLIMIT);
+        desiredWidth = intent.getIntExtra(WIDTH_KEY, 0);
+        desiredHeight = intent.getIntExtra(HEIGHT_KEY, 0);
+        quality = intent.getIntExtra(QUALITY_KEY, 0);
         maxImageCount = maxImages;
-        outputType = OutputType.fromValue(getIntent().getIntExtra(OUTPUT_TYPE_KEY, 0));
+        outputType = OutputType.fromValue(intent.getIntExtra(OUTPUT_TYPE_KEY, 0));
+        //
+        String maxAlertTitle = intent.getStringExtra(MAX_ALERT_TITLE_KEY);
+        if(maxAlertTitle != null && maxAlertTitle.length() > 0){
+            maximumAlertTitle = maxAlertTitle;
+        }
+        String maxAlertMsg = intent.getStringExtra(MAX_ALERT_MSG_KEY);
+        if(maxAlertMsg != null && maxAlertMsg.length() > 0){
+            maximumAlertMsg = maxAlertMsg;
+        }
 
         Display display = getWindowManager().getDefaultDisplay();
         int width = display.getWidth();
@@ -196,10 +212,13 @@ public class MultiImageChooserActivity extends AppCompatActivity implements
 
         if (maxImages == 0 && isChecked) {
             isChecked = false;
+            final String title = maximumAlertTitle.replace("|", Integer.toString(maxImageCount));
+            final String msg = maximumAlertMsg.replace("|", Integer.toString(maxImageCount));
             new AlertDialog.Builder(this)
-                    .setTitle("Maximum " + maxImageCount + " Photos")
-                    .setMessage("You can only select " + maxImageCount + " photos at a time.")
+                    .setTitle(title)
+                    .setMessage(msg)
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.cancel();
                         }

@@ -2,9 +2,9 @@ cordova-imagePicker
 ===================
 latest:
 1、add package.json to suport new version cordova 
+2、add chinese suport(添加中文支持)
+3、options add two field（'maximumAlertTitle' and 'maximumAlertMsg') to control alert info with  images's maximum count.
 
-===================
-add chinese suport(添加中文支持)
 Cordova Plugin For Multiple Image Selection - implemented for iOS and Android 4.0 and above.
 
 ## Installing the plugin
