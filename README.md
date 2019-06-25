@@ -3,7 +3,6 @@ cordova-imagePicker
 latest:
 1、add package.json to suport new version cordova 
 2、add chinese suport(添加中文支持)
-3、options add two field（'maximumAlertTitle' and 'maximumAlertMsg') to control alert info with  images's maximum count.
 
 Cordova Plugin For Multiple Image Selection - implemented for iOS and Android 4.0 and above.
 
@@ -13,13 +12,13 @@ The plugin conforms to the Cordova plugin specification, it can be installed
 using the Cordova / Phonegap command line interface.
 
     # without desc
-    phonegap plugin add https://github.com/woodstream/ImagePicker.git
-    cordova plugin add https://github.com/woodstream/ImagePicker.git
+    phonegap plugin add https://github.com/hanzhipeng1516/cordova-imagePicker.git
+    cordova plugin add https://github.com/hanzhipeng1516/cordova-imagePicker.git
     
     # with desc
-    phonegap plugin add https://github.com/woodstream/ImagePicker.git --variable PHOTO_LIBRARY_USAGE_DESCRIPTION="your usage message" --variable CAMERA_USAGE_DESCRIPTION="your usage message"
+    phonegap plugin add https://github.com/hanzhipeng1516/cordova-imagePicker.git --variable PHOTO_LIBRARY_USAGE_DESCRIPTION="app需要使用您的相册" --variable CAMERA_USAGE_DESCRIPTION="app需要使用您的相机"
 
-    cordova plugin add https://github.com/woodstream/ImagePicker.git --variable PHOTO_LIBRARY_USAGE_DESCRIPTION="your usage message" --variable CAMERA_USAGE_DESCRIPTION="your usage message"
+    cordova plugin add https://github.com/hanzhipeng1516/cordova-imagePicker.git --variable PHOTO_LIBRARY_USAGE_DESCRIPTION="app需要使用您的相册" --variable CAMERA_USAGE_DESCRIPTION="app需要使用您的相机"
 
 
 ## Using the plugin
